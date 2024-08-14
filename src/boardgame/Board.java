@@ -26,4 +26,19 @@ public class Board {
     public void setColumns(int columns) {
         this.columns = columns;
     }
+
+    //aqui estou pegando a posição das peças e armazenando.
+    public Piece piece() {
+        return pieces[rows][columns];
+    }
+
+    //aqui estou pegando o armazenamento da posição das peças e retornando para uso
+    public Piece piece(Position position){
+        return pieces[position.getRow()][position.getColumn()];
+    }
+
+    public Piece piece(int row, int column) {
+        return pieces[row][column];
+    }
+
 }
