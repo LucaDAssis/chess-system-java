@@ -41,9 +41,14 @@ public class ChessMatch {
         return (ChessPiece) capturedPiece;
     }
 
+
+    //aqui tivemos uma nova validação de movimento para saber se é possivel a peça se mover para o destino
     private void validadeteSoucerPosition(Position position) {
         if (!board.thereIsAPiece(position)){
             throw new ChessException("There is no piece at position " + position);
+        }
+        if (!board.piece(position).isThereAnyPossibleMove()){
+            throw new ChessException("There is no possible moves for the chosen piece ");
         }
     }
 
