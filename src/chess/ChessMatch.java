@@ -25,12 +25,19 @@ public class ChessMatch {
         return mat;
     }
 
+    public boolean[][] possibleMoves(ChessPosition soucerPosition){
+        Position position = soucerPosition.toPosition();
+        validadeteSoucerPosition(position);
+        return board.piece(position).possibleMoves();
+    }
+
     private Piece makeMove(Position source, Position target) {
         Piece p = board.removePiece(source);
         Piece capturedPiece = board.removePiece(target);
         board.placePiece(p,target);
         return capturedPiece;
     }
+
 
     public ChessPiece performMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position soucer = sourcePosition.toPosition();
